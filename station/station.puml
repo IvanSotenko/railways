@@ -1,0 +1,13 @@
+@startuml
+package "station" {
+  class Station {
+    + Name : string
+    + TicketPrice : github.com.shopspring.decimal.Decimal
+    + SeatsNumber : int
+    + TicketsSold : int
+    --
+    + NewStation(name string, ticketPrice github.com.shopspring.decimal.Decimal, seatsNumber int) : *Station
+    + TicketsAvailable() : int
+  }
+}
+@enduml
