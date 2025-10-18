@@ -1,4 +1,4 @@
-module railways
+module github.com/IvanSotenko/railways
 
 go 1.23.1
 
