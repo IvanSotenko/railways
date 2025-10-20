@@ -21,5 +21,5 @@ func NewStation(name string, ticketPrice decimal.Decimal, seatsNumber int) *Stat
 }
 
 func (s *Station) TicketsAvailable() int {
-	return s.TicketsSold + s.SeatsNumber
+	return s.SeatsNumber - s.TicketsSold
 }
