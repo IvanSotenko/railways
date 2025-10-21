@@ -11,13 +11,21 @@ type Station struct {
 	TicketsSold int
 }
 
-func NewStation(name string, ticketPrice decimal.Decimal, seatsNumber int) *Station {
+func NewStation(name string, ticketPrice decimal.Decimal, seatsNumber int) (*Station, error) {
+	if ticketPrice.IsNegative() {
+		return nil, ErrNegativePrice
+	}
+
+	if seatsNumber < 0 {
+		return nil, ErrNegativeSeats
+	}
+
 	return &Station{
 		Name:        name,
 		TicketPrice: ticketPrice,
 		SeatsNumber: seatsNumber,
 		TicketsSold: 0,
-	}
+	}, nil
 }
 
 func (s *Station) TicketsAvailable() int {
